@@ -2,9 +2,10 @@ import React from "react";
 import styled from 'styled-components';
 
 import { PersonPanelHeader } from "./PersonPanelHeader";
+import { PersonPanelConnections } from "./PersonPanelConnections";
 import { getColor } from "../../theme/theme";
 
-const PersonPanelContainer = styled.div`
+const PersonPanelWrapper = styled.div`
   height: 166px;
   width: 300px;
   margin-left: 10px;
@@ -14,7 +15,6 @@ const PersonPanelContainer = styled.div`
 
   display: flex;
   flex-direction: column;
-  Justify-content: flex-start;
   align-items: center;
 `;
 
@@ -45,11 +45,12 @@ const FacebookLink = styled.a`
 
 export const PersonPanel = () => {
   return (
-    <PersonPanelContainer>
+    <PersonPanelWrapper>
       <PersonPanelHeader />
       <PersonName>Gary Gilmore</PersonName>
       <PersonTitle>Marketing Manager</PersonTitle>
       <FacebookLink href="#">Facebook</FacebookLink>
-    </PersonPanelContainer>
+      <PersonPanelConnections />
+    </PersonPanelWrapper>
   )
 };
