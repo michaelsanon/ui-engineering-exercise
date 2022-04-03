@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 
 import { ActivitiesPanelHeader } from "./ActivitiesPanelHeader/ActivitiesPanelHeader";
+import { ActivityPage } from "./ActivityPage";
+import { TrackingPage } from "./TrackingPage";
+import { RemindersPage } from "./RemindersPage";
 import { getColor } from "../../theme/theme";
 
 const ActivitiesPanelWrapper = styled.div`
@@ -17,11 +20,23 @@ const ActivitiesPanelWrapper = styled.div`
   flex-direction: column;
 `;
 
+const PanelPage = ({ pageShown }) => {
+  switch (pageShown) {
+    case 'Tracking':
+      return <TrackingPage />
+    case 'Reminders':
+      return <RemindersPage />
+    default:
+      return <ActivityPage />
+  }
+}
+
 export const ActivitiesPanel = () => {
   const [pageShown, setPageShown] = useState('Activity')
   return (
     <ActivitiesPanelWrapper>
       <ActivitiesPanelHeader pageShown={pageShown} setPageShown={setPageShown} />
+      <PanelPage pageShown={pageShown} />
     </ActivitiesPanelWrapper>
   )
 };
