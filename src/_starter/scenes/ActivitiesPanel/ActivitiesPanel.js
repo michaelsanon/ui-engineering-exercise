@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 
 import { ActivitiesPanelHeader } from "./ActivitiesPanelHeader/ActivitiesPanelHeader";
-import { ActivityPage } from "./ActivityPage";
-import { TrackingPage } from "./TrackingPage";
-import { RemindersPage } from "./RemindersPage";
+import { ActivityPage } from "./ActivityPage/ActivityPage";
+import { TrackingPage } from "./TrackingPage/TrackingPage";
+import { RemindersPage } from "./RemindersPage/RemindersPage";
 import { getColor } from "../../theme/theme";
 
 const ActivitiesPanelWrapper = styled.div`
