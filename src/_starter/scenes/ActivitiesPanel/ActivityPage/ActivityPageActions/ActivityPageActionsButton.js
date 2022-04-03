@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types"
 import styled from 'styled-components';
 
-import { default as PlusIcon } from "../../../shared/Icons/Plus";
-import { default as PhoneIcon } from "../../../shared/Icons/Phone";
-import { getColor } from "../../../theme/theme";
+import { default as PlusIcon } from "../../../../shared/Icons/Plus";
+import { default as PhoneIcon } from "../../../../shared/Icons/Phone";
+import { getColor } from "../../../../theme/theme";
 
 const ActivityPageActionsButtonWrapper = styled.a`
   display: flex;

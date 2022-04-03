@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import styled, { css } from 'styled-components';
 
 // import { default as ChevronSmDownIcon } from "../../../shared/Icons/ChevronSmDown";
-import { getColor } from "../../../theme/theme";
+import { getColor } from "../../../../theme/theme";
 
 const ActivityPageActionsDropdownWrapper = styled.select`
   width: 88px;
@@ -28,8 +28,8 @@ const ActivityPageActionsDropdownWrapper = styled.select`
 
 export const ActivityPageActionsDropdown = ({ type }) => {
   return (
-    <ActivityPageActionsDropdownWrapper type={type}>
-      <option value="" disabled selected>{type}</option>
+    <ActivityPageActionsDropdownWrapper defaultValue="default" type={type}>
+      <option value="default" hidden disabled>{type}</option>
       <option>1</option>
       <option>2</option>
       <option>3</option>

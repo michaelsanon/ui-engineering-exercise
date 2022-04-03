@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 
 import { ActivityPageActionsDropdown } from './ActivityPageActionsDropdown';
-import { getColor } from "../../../theme/theme";
+import { getColor } from "../../../../theme/theme";
 
 const ActivityPageActionsDropdownsWrapper = styled.div`
   display: flex;

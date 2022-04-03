@@ -1,7 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 
-import { ActivityPageActions } from './ActivityPageActions';
+import { ActivityPageActions } from './ActivityPageActions/ActivityPageActions';
 
 const ActivityPageWrapper = styled.div`
   display: flex;
