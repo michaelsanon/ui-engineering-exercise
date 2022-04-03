@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types"
 import styled from 'styled-components';
 
 import { ActivitiesPanelHeaderTabs } from "./ActivitiesPanelHeaderTabs";
@@ -10,10 +11,15 @@ const ActivitiesPanelHeaderWrapper = styled.div`
   border-bottom: 1px solid ${getColor('greyLightest')};
 `;
 
-export const ActivitiesPanelHeader = () => {
+export const ActivitiesPanelHeader = ({ pageShown, setPageShown }) => {
   return (
     <ActivitiesPanelHeaderWrapper>
-      <ActivitiesPanelHeaderTabs />
+      <ActivitiesPanelHeaderTabs pageShown={pageShown} setPageShown={setPageShown} />
     </ActivitiesPanelHeaderWrapper>
   )
 };
+
+ActivitiesPanelHeader.propTypes = {
+  pageShown: PropTypes.string,
+  setPageShown: PropTypes.func
+}

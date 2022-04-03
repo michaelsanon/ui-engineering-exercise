@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from 'styled-components';
 
 import { ActivitiesPanelHeader } from "./ActivitiesPanelHeader/ActivitiesPanelHeader";
@@ -18,9 +18,10 @@ const ActivitiesPanelWrapper = styled.div`
 `;
 
 export const ActivitiesPanel = () => {
+  const [pageShown, setPageShown] = useState('Activity')
   return (
     <ActivitiesPanelWrapper>
-      <ActivitiesPanelHeader />
+      <ActivitiesPanelHeader pageShown={pageShown} setPageShown={setPageShown} />
     </ActivitiesPanelWrapper>
   )
 };
