@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types"
 import styled, { css } from 'styled-components';
 
-import { default as ChevronSmDownIcon } from "../../../shared/Icons/ChevronSmDown";
+// import { default as ChevronSmDownIcon } from "../../../shared/Icons/ChevronSmDown";
 import { getColor } from "../../../theme/theme";
 
 const ActivityPageActionsDropdownWrapper = styled.select`
@@ -36,3 +37,7 @@ export const ActivityPageActionsDropdown = ({ type }) => {
     </ActivityPageActionsDropdownWrapper>
   )
 };
+
+ActivityPageActionsDropdown.propTypes = {
+  type: PropTypes.string
+}

@@ -5,10 +5,9 @@ import { ActivityPageActionsDropdown } from './ActivityPageActionsDropdown';
 import { getColor } from "../../../theme/theme";
 
 const ActivityPageActionsDropdownsWrapper = styled.div`
-  height: 100%;
-
   display: flex;
   flex-direction: row;
+  height: 100%;
 `;
 
 const DropdownSeparator = styled.div`

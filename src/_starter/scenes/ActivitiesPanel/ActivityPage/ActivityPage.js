@@ -2,9 +2,9 @@ import React from "react";
 import styled from 'styled-components';
 
 import { ActivityPageActions } from './ActivityPageActions';
-import { getColor } from "../../../theme/theme";
 
 const ActivityPageWrapper = styled.div`
+  display: flex;
   height: 100%;
   width: 100%;
 `;

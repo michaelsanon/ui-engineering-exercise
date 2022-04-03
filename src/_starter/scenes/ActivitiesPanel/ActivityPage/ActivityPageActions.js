@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 
 import { ActivityPageActionsDropdowns } from './ActivityPageActionsDropdowns';
-import { getColor } from "../../../theme/theme";
+import { ActivityPageActionsButtons } from './ActivityPageActionsButtons';
 
 const ActivityPageActionsWrapper = styled.div`
   height: 32px;
@@ -10,16 +10,18 @@ const ActivityPageActionsWrapper = styled.div`
 
   margin-top: 16px;
   padding-left: 21px;
+  padding-right: 28px;
 
   display: flex;
   flex-direction: row;
-  align-items: space-between;
+  justify-content: space-between;
 `;
 
 export const ActivityPageActions = () => {
   return (
     <ActivityPageActionsWrapper>
       <ActivityPageActionsDropdowns />
+      <ActivityPageActionsButtons />
     </ActivityPageActionsWrapper>
   )
 };
