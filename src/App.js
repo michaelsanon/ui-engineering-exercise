@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { getColor } from "./_starter/theme/theme";
 import { PersonPanel } from "./_starter/scenes/PersonPanel/PersonPanel";
+import { ActivitiesPanel } from "./_starter/scenes/ActivitiesPanel/ActivitiesPanel";
 
 const AppWrapper = styled.div`
   height: 100%;
@@ -17,10 +18,11 @@ export const App = () => {
       .then(res => res.json())
       .then(result => setpersonData(result))
   }, []);
-  
+
   return (
     <AppWrapper>
-      <PersonPanel personData={personData} />
+      {/* <PersonPanel personData={personData} /> */}
+      <ActivitiesPanel personData={personData} />
     </AppWrapper>
   )
 };
