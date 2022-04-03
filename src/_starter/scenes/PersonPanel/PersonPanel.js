@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types"
 import styled from 'styled-components';
 
 import { PersonPanelHeader } from "./PersonPanelHeader";
@@ -34,7 +35,7 @@ const PersonTitle = styled.span`
   margin-top: 6px;
 `;
 
-const FacebookLink = styled.a`
+const PersonCompany = styled.a`
   font-weight: 600;
   color: #337AB7;
   font-size: 14px;
@@ -43,14 +44,19 @@ const FacebookLink = styled.a`
   text-decoration: none;
 `;
 
-export const PersonPanel = () => {
+export const PersonPanel = ({ personData }) => {
   return (
     <PersonPanelWrapper>
       <PersonPanelHeader />
-      <PersonName>Gary Gilmore</PersonName>
-      <PersonTitle>Marketing Manager</PersonTitle>
-      <FacebookLink href="#">Facebook</FacebookLink>
-      <PersonPanelConnections />
+      <PersonName>{personData.display_name}</PersonName>
+      <PersonTitle>{personData.title}</PersonTitle>
+      <PersonCompany href={personData.person_company_website}>{personData.person_company_name}</PersonCompany>
+      <PersonPanelConnections personData={personData} />
     </PersonPanelWrapper>
   )
 };
+
+PersonPanel.propTypes = {
+  personData: PropTypes.object
+}
+

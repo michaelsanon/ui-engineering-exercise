@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types"
 import styled from 'styled-components';
 
 import { default as CloudIcon } from "../../shared/Icons/Cloud";
@@ -34,13 +35,17 @@ export const StyledLinkIcon = styled(LinkIcon)`
   cursor: pointer;
 `;
 
-export const PersonPanelConnections = () => {
+export const PersonPanelConnections = ({ personData }) => {
   return (
     <PersonPanelConnectionsWrapper>
-      <a href="www.google.com"><StyledCloudIcon /></a>
-      <a href="www.google.com"><StyledLinkedInIcon /></a>
-      <a href="www.google.com"><StyledTwitterIcon /></a>
-      <a href="www.google.com"><StyledLinkIcon /></a>
+      <a href={personData.crm_url}><StyledCloudIcon /></a>
+      <a href={personData.linkedin_url}><StyledLinkedInIcon /></a>
+      <a href={`https://twitter.com/${personData.twitter_handle}`}><StyledTwitterIcon /></a>
+      <a href={personData.personal_website}><StyledLinkIcon /></a>
     </PersonPanelConnectionsWrapper>
   )
 };
+
+PersonPanelConnections.propTypes = {
+  personData: PropTypes.object
+}

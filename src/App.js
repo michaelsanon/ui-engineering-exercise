@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import { getColor } from "./_starter/theme/theme";
@@ -10,9 +10,17 @@ const AppWrapper = styled.div`
 `;
 
 export const App = () => {
+  const [personData, setpersonData] = useState({});
+
+  useEffect(() => {
+    fetch('https://ui-offline-exercise.s3.amazonaws.com/data/people.json')
+      .then(res => res.json())
+      .then(result => setpersonData(result))
+  }, []);
+  
   return (
     <AppWrapper>
-      <PersonPanel />
+      <PersonPanel personData={personData} />
     </AppWrapper>
   )
 };

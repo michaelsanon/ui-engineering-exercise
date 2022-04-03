@@ -12,12 +12,13 @@ const HeaderWrapper = styled.div`
   border-bottom: 1px solid ${getColor('greyLightest')};
 
   display: flex;
-  Justify-content: space-between;
   align-items: center;
+  Justify-content: space-between;
 `;
 
 export const StyledStarOutlinedIcon = styled(StarOutlinedIcon)`
   color: ${getColor('orange')};
+  fill: ${getColor('orange')};
   margin-left: 16px;
   cursor: pointer;
 `;
