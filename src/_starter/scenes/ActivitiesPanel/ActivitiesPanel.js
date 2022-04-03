@@ -1,6 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 
+import { ActivitiesPanelHeader } from "./ActivitiesPanelHeader/ActivitiesPanelHeader";
 import { getColor } from "../../theme/theme";
 
 const ActivitiesPanelWrapper = styled.div`
@@ -12,12 +13,14 @@ const ActivitiesPanelWrapper = styled.div`
   background-color: ${getColor('white')};
   border: 1px solid ${getColor('greyLightest')};
 
+  display: flex;
+  flex-direction: column;
 `;
 
 export const ActivitiesPanel = () => {
   return (
     <ActivitiesPanelWrapper>
-      Hello, I am the Activities Panel
+      <ActivitiesPanelHeader />
     </ActivitiesPanelWrapper>
   )
 };
