@@ -8,6 +8,9 @@ import { RemindersPage } from "./RemindersPage/RemindersPage";
 import { getColor } from "../../theme/theme";
 
 const ActivitiesPanelWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
   height: 700px;
   width: 667px;
   margin-top: 20px;
@@ -15,9 +18,10 @@ const ActivitiesPanelWrapper = styled.div`
 
   background-color: ${getColor('white')};
   border: 1px solid ${getColor('greyLightest')};
+`;
 
+const PanelPageWrapper = styled.div`
   display: flex;
-  flex-direction: column;
 `;
 
 const PanelPage = ({ pageShown }) => {
@@ -36,7 +40,9 @@ export const ActivitiesPanel = () => {
   return (
     <ActivitiesPanelWrapper>
       <ActivitiesPanelHeader pageShown={pageShown} setPageShown={setPageShown} />
-      <PanelPage pageShown={pageShown} />
+      <PanelPageWrapper>
+        <PanelPage pageShown={pageShown} />
+      </PanelPageWrapper>
     </ActivitiesPanelWrapper>
   )
 };

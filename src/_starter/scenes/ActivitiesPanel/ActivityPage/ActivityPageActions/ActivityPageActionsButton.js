@@ -13,19 +13,25 @@ const ActivityPageActionsButtonWrapper = styled.a`
   font-size: 14px;
   line-height: 16px;
   color: ${getColor('blue')};
+  width: 115px;
+`;
+
+const TextWrapper = styled.div`
   cursor: pointer;
-  margin-left: 20px;
+  display: flex;
 `;
 
 const Text = styled.span`
-  margin-left: 6px; 
+  margin-left: 6px;
 `;
 
 export const ActivityPageActionsButton = ({ text, icon }) => {
   return (
     <ActivityPageActionsButtonWrapper>
-      {icon === 'phone' ? <PhoneIcon /> : <PlusIcon width="18px" height="18px" />}
-      <Text>{text}</Text>
+      <TextWrapper>
+        {icon === 'phone' ? <PhoneIcon /> : <PlusIcon width="18px" height="18px" />}
+        <Text>{text}</Text>
+      </TextWrapper>
     </ActivityPageActionsButtonWrapper>
   )
 };
