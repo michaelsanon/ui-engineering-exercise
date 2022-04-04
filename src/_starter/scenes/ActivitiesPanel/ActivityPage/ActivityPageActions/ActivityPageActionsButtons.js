@@ -5,6 +5,7 @@ import { ActivityPageActionsButton } from './ActivityPageActionsButton';
 
 const ActivityPageActionsButtonsWrapper = styled.div`
   display: flex;
+  align-items: center;
   height: 100%;
 `;
 

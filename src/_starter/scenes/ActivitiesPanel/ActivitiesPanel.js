@@ -22,6 +22,7 @@ const ActivitiesPanelWrapper = styled.div`
 
 const PanelPageWrapper = styled.div`
   display: flex;
+  min-height: 800px;
 `;
 
 const PanelPage = ({ pageShown, personName, activitiesUrls }) => {

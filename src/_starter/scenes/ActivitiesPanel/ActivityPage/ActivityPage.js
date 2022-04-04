@@ -12,9 +12,7 @@ const ActivityPageWrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 16px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 16px 20px;
   width: 100%;
 `;
 

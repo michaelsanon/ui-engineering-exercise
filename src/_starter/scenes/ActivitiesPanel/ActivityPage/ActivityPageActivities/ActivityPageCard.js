@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 import { ActivityPageCardIcon } from './ActivityPageCardIcons';
 import { ActivityPageCardInfo } from './ActivityPageCardInfo';
-import { getColor } from "../../../../theme/theme";
 
 const ActivityPageCardWrapper = styled.div`
   display: flex;
@@ -13,6 +12,7 @@ const ActivityPageCardWrapper = styled.div`
   width: 100%;
   margin-bottom: 8px;
 `;
+
 
 export const ActivityPageCard = ({ personName, activity }) => {
   return (

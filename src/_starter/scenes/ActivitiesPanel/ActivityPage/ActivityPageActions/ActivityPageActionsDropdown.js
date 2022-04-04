@@ -2,16 +2,20 @@ import React from "react";
 import PropTypes from "prop-types"
 import styled, { css } from 'styled-components';
 
-// import { default as ChevronSmDownIcon } from "../../../shared/Icons/ChevronSmDown";
+import { default as ChevronSmDownIcon } from "../../../../shared/Icons/ChevronSmDown";
 import { getColor } from "../../../../theme/theme";
 
-const ActivityPageActionsDropdownWrapper = styled.select`
+const ActivityPageActionsDropdownWrapper = styled.button`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 8px;
   width: 88px;
   border-radius: 4px;
-  padding-left: 12px;
   font-weight: 600;
   font-size: 14px;
   line-height: 16px;
+  cursor: pointer;
 
   ${({ type }) => type === 'Person' && css`
     background-color: ${getColor('blue')};
@@ -26,14 +30,17 @@ const ActivityPageActionsDropdownWrapper = styled.select`
   `};
 `;
 
+const StyledChevronSmDownIcon = styled(ChevronSmDownIcon)`
+  height: 18px;
+  width: 18px;
+  margin-left: 2px;
+`;
+
 export const ActivityPageActionsDropdown = ({ type }) => {
   return (
-    <ActivityPageActionsDropdownWrapper defaultValue="default" type={type}>
-      <option value="default" hidden disabled>{type}</option>
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
+    <ActivityPageActionsDropdownWrapper type={type}>
+      {type}
+      <StyledChevronSmDownIcon />
     </ActivityPageActionsDropdownWrapper>
   )
 };

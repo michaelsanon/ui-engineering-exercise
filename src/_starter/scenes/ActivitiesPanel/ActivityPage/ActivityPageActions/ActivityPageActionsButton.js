@@ -11,7 +11,7 @@ const ActivityPageActionsButtonWrapper = styled.a`
   align-items: center;
   font-weight: 600;
   font-size: 14px;
-  line-height: 16px;
+  line-height: 12px;
   color: ${getColor('blue')};
   width: 115px;
 `;
