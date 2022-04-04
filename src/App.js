@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { getColor } from "./_starter/theme/theme";
 import { PersonPanel } from "./_starter/components/PersonPanel/PersonPanel";
 import { PeopleDashboard } from "./_starter/components/PeopleDashboard/PeopleDashboard";
+import { BlankPlaceholderPanel } from "./_starter/components/BlankPlaceholderPanel";
+import { PeopleBar } from "./_starter/components/PeopleBar";
 
 const AppWrapper = styled.div`
   height: 100%;
@@ -23,6 +25,7 @@ export const App = () => {
 
   return (
     <AppWrapper>
+      <PeopleBar />
       {/* <PersonPanel 
         displayName={personData.display_name}
         title={personData.title}
@@ -33,10 +36,10 @@ export const App = () => {
         personalWebsiteUrl={personData.personal_website}
         companyWebsiteUrl={personData.person_company_website}
       /> */}
-      <PeopleDashboard 
+      {/* <PeopleDashboard 
         personName={personData.display_name} 
         activitiesUrls={[personData?.activities?._href, personData?.upcoming_activities?._href]} 
-      />
+      /> */}
     </AppWrapper>
   )
 };
