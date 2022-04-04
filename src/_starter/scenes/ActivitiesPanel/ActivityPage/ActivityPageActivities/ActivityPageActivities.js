@@ -20,18 +20,19 @@ const ActivityPageActivitiesTitle = styled.span`
   color: ${getColor('greyDark')};
 `;
 
-export const ActivityPageActivities = ({ activitiesType, activities }) => {
+export const ActivityPageActivities = ({ personName, activitiesType, activities }) => {
   return (
     <ActivityPageActivitiesWrapper>
       <ActivityPageActivitiesTitle>
         {activitiesType === 'upcoming' ? 'Upcoming Activities' : 'Past Activities'}
       </ActivityPageActivitiesTitle>
-      <ActivityPageCards activities={activities} />
+      <ActivityPageCards activities={activities} personName={personName} />
     </ActivityPageActivitiesWrapper>
   )
 };
 
 ActivityPageActivities.propTypes = {
   activities: PropTypes.array,
-  activitiesType: PropTypes.string
+  activitiesType: PropTypes.string,
+  personName: PropTypes.string
 }

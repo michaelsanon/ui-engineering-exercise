@@ -12,16 +12,17 @@ const ActivityPageCardsWrapper = styled.div`
   margin-top: 16px;
 `;
 
-export const ActivityPageCards = ({ activities }) => {
+export const ActivityPageCards = ({ personName, activities }) => {
   return (
     <ActivityPageCardsWrapper>
       {activities.map(activity => (
-        <ActivityPageCard activity={activity} />
+        <ActivityPageCard activity={activity} personName={personName} />
       ))}
     </ActivityPageCardsWrapper>
   )
 };
 
 ActivityPageCards.propTypes = {
-  activities: PropTypes.array
+  activities: PropTypes.array,
+  personName: PropTypes.string
 }

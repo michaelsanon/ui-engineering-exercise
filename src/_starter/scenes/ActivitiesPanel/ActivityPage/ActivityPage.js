@@ -18,7 +18,7 @@ const ActivityPageWrapper = styled.div`
   width: 100%;
 `;
 
-export const ActivityPage = ({ activitiesUrls }) => {
+export const ActivityPage = ({ personName, activitiesUrls }) => {
   const [upcomingActivities, setUpcomingActivities] = useState([]);
   const [pastActivities, setPastActivities] = useState([]);
 
@@ -41,12 +41,13 @@ export const ActivityPage = ({ activitiesUrls }) => {
   return (
     <ActivityPageWrapper>
       <ActivityPageActions />
-      <ActivityPageActivities activitiesType="upcoming" activities={upcomingActivities} />
-      <ActivityPageActivities activitiesType="past" activities={pastActivities} />
+      <ActivityPageActivities activitiesType="upcoming" activities={upcomingActivities} personName={personName} />
+      <ActivityPageActivities activitiesType="past" activities={pastActivities} personName={personName} />
     </ActivityPageWrapper>
   )
 };
 
 ActivityPage.propTypes = {
-  activitiesUrls: PropTypes.array
+  activitiesUrls: PropTypes.array,
+  personName: PropTypes.string
 };

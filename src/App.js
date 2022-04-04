@@ -22,7 +22,10 @@ export const App = () => {
   return (
     <AppWrapper>
       {/* <PersonPanel personData={personData} /> */}
-      <ActivitiesPanel activitiesUrls={[personData?.activities?._href, personData?.upcoming_activities?._href]} />
+      <ActivitiesPanel 
+        personName={personData.display_name} 
+        activitiesUrls={[personData?.activities?._href, personData?.upcoming_activities?._href]} 
+      />
     </AppWrapper>
   )
 };

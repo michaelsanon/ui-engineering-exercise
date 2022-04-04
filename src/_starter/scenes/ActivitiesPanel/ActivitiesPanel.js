@@ -12,7 +12,6 @@ const ActivitiesPanelWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  height: 700px;
   width: 667px;
   margin-top: 20px;
   margin-left: 20px;
@@ -25,34 +24,36 @@ const PanelPageWrapper = styled.div`
   display: flex;
 `;
 
-const PanelPage = ({ pageShown, activitiesUrls }) => {
+const PanelPage = ({ pageShown, personName, activitiesUrls }) => {
   switch (pageShown) {
     case 'Tracking':
       return <TrackingPage />
     case 'Reminders':
       return <RemindersPage />
     default:
-      return <ActivityPage activitiesUrls={activitiesUrls} />
+      return <ActivityPage activitiesUrls={activitiesUrls} personName={personName} />
   }
 }
 
-export const ActivitiesPanel = ({ activitiesUrls }) => {
+export const ActivitiesPanel = ({ personName, activitiesUrls }) => {
   const [pageShown, setPageShown] = useState('Activity');
   return (
     <ActivitiesPanelWrapper>
       <ActivitiesPanelHeader pageShown={pageShown} setPageShown={setPageShown} />
       <PanelPageWrapper>
-        <PanelPage pageShown={pageShown} activitiesUrls={activitiesUrls} />
+        <PanelPage pageShown={pageShown} personName={personName} activitiesUrls={activitiesUrls} />
       </PanelPageWrapper>
     </ActivitiesPanelWrapper>
   )
 };
 
 ActivitiesPanel.propTypes = {
-  activitiesUrl: PropTypes.array
+  activitiesUrl: PropTypes.array,
+  personName: PropTypes.string
 };
 
 PanelPage.propTypes = {
   activitiesUrls: PropTypes.array,
-  pageShown: PropTypes.string
+  pageShown: PropTypes.string,
+  personName: PropTypes.string
 }
