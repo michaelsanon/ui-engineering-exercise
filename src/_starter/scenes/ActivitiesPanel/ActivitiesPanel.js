@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types"
 import styled from 'styled-components';
 
 import { ActivitiesPanelHeader } from "./ActivitiesPanelHeader/ActivitiesPanelHeader";
@@ -24,25 +25,38 @@ const PanelPageWrapper = styled.div`
   display: flex;
 `;
 
-const PanelPage = ({ pageShown }) => {
+const PanelPage = ({ pageShown, activitiesUrls }) => {
   switch (pageShown) {
     case 'Tracking':
       return <TrackingPage />
     case 'Reminders':
       return <RemindersPage />
     default:
-      return <ActivityPage />
+      return <ActivityPage activitiesUrls={activitiesUrls} />
   }
 }
 
-export const ActivitiesPanel = () => {
-  const [pageShown, setPageShown] = useState('Activity')
+export const ActivitiesPanel = ({ activitiesUrls }) => {
+  const [pageShown, setPageShown] = useState('Activity');
+
+  
+
+
   return (
     <ActivitiesPanelWrapper>
       <ActivitiesPanelHeader pageShown={pageShown} setPageShown={setPageShown} />
       <PanelPageWrapper>
-        <PanelPage pageShown={pageShown} />
+        <PanelPage pageShown={pageShown} activitiesUrls={activitiesUrls} />
       </PanelPageWrapper>
     </ActivitiesPanelWrapper>
   )
 };
+
+ActivitiesPanel.propTypes = {
+  activitiesUrl: PropTypes.array
+};
+
+PanelPage.propTypes = {
+  activitiesUrls: PropTypes.array,
+  pageShown: PropTypes.string
+}

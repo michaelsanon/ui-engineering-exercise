@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types"
 import styled from 'styled-components';
 
 import { ActivityPageActions } from './ActivityPageActions/ActivityPageActions';
@@ -15,7 +16,24 @@ const ActivityPageWrapper = styled.div`
   width: 100%;
 `;
 
-export const ActivityPage = () => {
+export const ActivityPage = ({ activitiesUrls }) => {
+  const [upcomingActivities, setUpcomingActivities] = useState([]);
+  const [pastActivities, setPastActivities] = useState([]);
+  
+  // This is where I need to get past and upcoming activities
+  // This is where I will handle filtering the activities
+  // Pass filtered activities into ActivityPageActivities
+
+  useEffect(() => {
+    fetch(activitiesUrls[0])
+      .then(res => res.json())
+      .then(result => setPastActivities(result))
+
+    fetch(activitiesUrls[1])
+      .then(res => res.json())
+      .then(result => setUpcomingActivities(result))
+  }, []);
+
   return (
     <ActivityPageWrapper>
       <ActivityPageActions />
@@ -23,4 +41,8 @@ export const ActivityPage = () => {
       <ActivityPageActivities activitiesType="past"/>
     </ActivityPageWrapper>
   )
+};
+
+ActivityPage.propTypes = {
+  activitiesUrls: PropTypes.array
 };

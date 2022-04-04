@@ -17,8 +17,8 @@ const ActivityPageActionsButtonWrapper = styled.a`
 `;
 
 const TextWrapper = styled.div`
-  cursor: pointer;
   display: flex;
+  cursor: pointer;
 `;
 
 const Text = styled.span`
