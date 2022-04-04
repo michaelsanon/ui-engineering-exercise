@@ -22,7 +22,7 @@ export const App = () => {
   return (
     <AppWrapper>
       {/* <PersonPanel personData={personData} /> */}
-      <ActivitiesPanel activitiesUrls={[personData.activities._href, personData.upcoming_activities._href]} />
+      <ActivitiesPanel activitiesUrls={[personData?.activities?._href, personData?.upcoming_activities?._href]} />
     </AppWrapper>
   )
 };

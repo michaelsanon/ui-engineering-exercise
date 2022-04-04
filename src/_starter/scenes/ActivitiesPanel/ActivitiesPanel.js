@@ -38,10 +38,6 @@ const PanelPage = ({ pageShown, activitiesUrls }) => {
 
 export const ActivitiesPanel = ({ activitiesUrls }) => {
   const [pageShown, setPageShown] = useState('Activity');
-
-  
-
-
   return (
     <ActivitiesPanelWrapper>
       <ActivitiesPanelHeader pageShown={pageShown} setPageShown={setPageShown} />
