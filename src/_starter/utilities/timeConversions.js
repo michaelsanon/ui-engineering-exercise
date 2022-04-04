@@ -5,7 +5,6 @@ export const secondsToMS = time => {
 }
 
 export const extractDateAndTime = dateObj => {
-  console.log(dateObj)
   const date = new Date(dateObj);
   const results = [];
 
@@ -19,7 +18,7 @@ export const extractDateAndTime = dateObj => {
   const amOrPm = hours >= 12 ? 'PM' : 'AM';
   hours = hours % 12;
   hours = hours ? hours : 12;
-  minutes = minutes < 10 ? '0'+ minutes : minutes;
+  minutes = minutes < 10 ? '0' + minutes : minutes;
   const time = hours + ':' + minutes + ' ' + amOrPm;
   results.push(time)
   

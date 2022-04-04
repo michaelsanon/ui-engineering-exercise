@@ -8,7 +8,7 @@ import { default as TwitterIcon } from "../../shared/Icons/Twitter";
 import { default as LinkIcon } from "../../shared/Icons/Link";
 import { getColor } from "../../theme/theme";
 
-const PersonPanelConnectionsWrapper = styled.div`
+const ConnectionsWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   margin-top: 15px;
@@ -16,7 +16,7 @@ const PersonPanelConnectionsWrapper = styled.div`
 `;
 
 export const StyledCloudIcon = styled(CloudIcon)`
-  color: #049BE5;
+  color: ${getColor('vendorSalesforceBlue')};
   cursor: pointer;
 `;
 
@@ -35,17 +35,23 @@ export const StyledLinkIcon = styled(LinkIcon)`
   cursor: pointer;
 `;
 
-export const PersonPanelConnections = ({ personData }) => {
-  return (
-    <PersonPanelConnectionsWrapper>
-      <a href={personData.crm_url}><StyledCloudIcon /></a>
-      <a href={personData.linkedin_url}><StyledLinkedInIcon /></a>
-      <a href={`https://twitter.com/${personData.twitter_handle}`}><StyledTwitterIcon /></a>
-      <a href={personData.personal_website}><StyledLinkIcon /></a>
-    </PersonPanelConnectionsWrapper>
-  )
-};
+export const Connections = ({
+  salesforceUrl,
+  linkedinUrl,
+  twitterHandle,
+  personalWebsiteUrl
+}) => (
+  <ConnectionsWrapper>
+    <a href={salesforceUrl}><StyledCloudIcon /></a>
+    <a href={linkedinUrl}><StyledLinkedInIcon /></a>
+    <a href={`https://twitter.com/${twitterHandle}`}><StyledTwitterIcon /></a>
+    <a href={personalWebsiteUrl}><StyledLinkIcon /></a>
+  </ConnectionsWrapper>
+)
 
-PersonPanelConnections.propTypes = {
-  personData: PropTypes.object
+Connections.propTypes = {
+  salesforceUrl: PropTypes.string,
+  linkedinUrl: PropTypes.string,
+  twitterHandle: PropTypes.string,
+  personalWebsiteUrl: PropTypes.string
 }

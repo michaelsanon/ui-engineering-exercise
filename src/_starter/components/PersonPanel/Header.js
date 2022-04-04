@@ -28,11 +28,9 @@ export const StyledEllipsisHorizontalIcon = styled(EllipsisHorizontalIcon)`
   cursor: pointer;
 `;
 
-export const PersonPanelHeader = () => {
-  return (
-    <HeaderWrapper>
-      <StyledStarOutlinedIcon />
-      <StyledEllipsisHorizontalIcon />
-    </HeaderWrapper>
-  )
-};
+export const Header = () => (
+  <HeaderWrapper>
+    <StyledStarOutlinedIcon />
+    <StyledEllipsisHorizontalIcon />
+  </HeaderWrapper>
+)

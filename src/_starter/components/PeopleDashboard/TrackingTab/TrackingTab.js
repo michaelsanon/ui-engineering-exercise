@@ -6,8 +6,6 @@ const TrackingPageWrapper = styled.div`
   width: 100%;
 `;
 
-export const TrackingPage = ({ pageShown, setPageShown }) => {
-  return (
-    <TrackingPageWrapper />
-  )
-};
+export const TrackingTab = () => (
+  <TrackingPageWrapper />
+)

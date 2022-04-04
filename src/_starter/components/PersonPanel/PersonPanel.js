@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types"
 import styled from 'styled-components';
 
-import { PersonPanelHeader } from "./PersonPanelHeader";
-import { PersonPanelConnections } from "./PersonPanelConnections";
+import { Header } from "./Header";
+import { Connections } from "./Connections";
 import { getColor } from "../../theme/theme";
 
 const PersonPanelWrapper = styled.div`
@@ -44,19 +44,37 @@ const PersonCompany = styled.a`
   text-decoration: none;
 `;
 
-export const PersonPanel = ({ personData }) => {
-  return (
-    <PersonPanelWrapper>
-      <PersonPanelHeader />
-      <PersonName>{personData.display_name}</PersonName>
-      <PersonTitle>{personData.title}</PersonTitle>
-      <PersonCompany href={personData.person_company_website}>{personData.person_company_name}</PersonCompany>
-      <PersonPanelConnections personData={personData} />
-    </PersonPanelWrapper>
-  )
-};
+export const PersonPanel = ({
+  displayName,
+  title,
+  companyName,
+  salesforceUrl,
+  linkedinUrl,
+  twitterHandle,
+  personalWebsiteUrl,
+  companyWebsiteUrl
+ }) => (
+  <PersonPanelWrapper>
+    <Header />
+    <PersonName>{displayName}</PersonName>
+    <PersonTitle>{title}</PersonTitle>
+    <PersonCompany href={companyWebsiteUrl}>{companyName}</PersonCompany>
+    <Connections 
+      salesforceUrl={salesforceUrl} 
+      linkedinUrl={linkedinUrl} 
+      twitterHandle={twitterHandle} 
+      personalWebsiteUrl={personalWebsiteUrl}
+    />
+  </PersonPanelWrapper>
+)
 
 PersonPanel.propTypes = {
-  personData: PropTypes.object
+  displayName: PropTypes.string,
+  title: PropTypes.string,
+  company: PropTypes.string,
+  salesforceUrl: PropTypes.string,
+  linkedinUrl: PropTypes.string,
+  twitterHandle: PropTypes.string,
+  personalWebsiteUrl: PropTypes.string
 }
 

@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 
 import { getColor } from "../../../theme/theme";
 
-const ActivitiesPanelHeaderTabWrapper = styled.div`
+const PeopleDashboardTabWrapper = styled.div`
   margin-right: 25px;
   display: flex;
   align-items: center;
@@ -13,7 +13,7 @@ const ActivitiesPanelHeaderTabWrapper = styled.div`
   font-size: 14px;
   line-height: 17px;
 
-  ${({ pageShown, tabTitle }) => pageShown === tabTitle && css`
+  ${({ activeTab, tabTitle }) => activeTab === tabTitle && css`
     font-weight: 600;
     border-bottom: 3px solid ${getColor('blueLight')};
   `};
@@ -23,18 +23,18 @@ const TabTitle = styled.span`
   cursor: pointer;
 `;
 
-export const ActivitiesPanelHeaderTab = ({ tabTitle, pageShown, handleTabClick }) => {
+export const PeopleDashboardTab = ({ tabTitle, activeTab, handleTabClick }) => {
   return (
-    <ActivitiesPanelHeaderTabWrapper pageShown={pageShown} tabTitle={tabTitle}>
+    <PeopleDashboardTabWrapper activeTab={activeTab} tabTitle={tabTitle}>
       <TabTitle onClick={() => handleTabClick(tabTitle)}>
         {tabTitle}
       </TabTitle>
-    </ActivitiesPanelHeaderTabWrapper>
+    </PeopleDashboardTabWrapper>
   )
 };
 
-ActivitiesPanelHeaderTab.propTypes = {
+PeopleDashboardTab.propTypes = {
   tabTitle: PropTypes.string,
-  pageShown: PropTypes.string,
+  activeTab: PropTypes.string,
   handleTabClick: PropTypes.func
 }

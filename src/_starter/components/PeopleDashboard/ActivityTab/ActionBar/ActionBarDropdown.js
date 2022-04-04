@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components';
 import { default as ChevronSmDownIcon } from "../../../../shared/Icons/ChevronSmDown";
 import { getColor } from "../../../../theme/theme";
 
-const ActivityPageActionsDropdownWrapper = styled.button`
+const ActionBarDropdownWrapper = styled.button`
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -36,15 +36,13 @@ const StyledChevronSmDownIcon = styled(ChevronSmDownIcon)`
   margin-left: 2px;
 `;
 
-export const ActivityPageActionsDropdown = ({ type }) => {
-  return (
-    <ActivityPageActionsDropdownWrapper type={type}>
-      {type}
-      <StyledChevronSmDownIcon />
-    </ActivityPageActionsDropdownWrapper>
-  )
-};
+export const ActionBarDropdown = ({ type }) => (
+  <ActionBarDropdownWrapper type={type}>
+    {type}
+    <StyledChevronSmDownIcon />
+  </ActionBarDropdownWrapper>
+);
 
-ActivityPageActionsDropdown.propTypes = {
+ActionBarDropdown.propTypes = {
   type: PropTypes.string
 }

@@ -26,7 +26,7 @@ const StyledVoiceMailIcon = styled(VoiceMailIcon)`
   opacity: 1 !important;
 `;
 
-export const ActivityPageCardIcon = ({ activityType }) => {
+export const CardIcon = ({ activityType }) => {
   switch (activityType) {
     case 'voicemail':
       return (
@@ -61,12 +61,12 @@ export const ActivityPageCardIcon = ({ activityType }) => {
     default:
       return (
         <IconWrapper color='101, 139, 159'>
-          <RocketIcon color='#658b9f'/>
+          <RocketIcon color='#3c9cd2'/>
         </IconWrapper>
       )
   }
 }
 
-ActivityPageCardIcon.propTypes = {
+CardIcon.propTypes = {
   activityType: PropTypes.string
 }

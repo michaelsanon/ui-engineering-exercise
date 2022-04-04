@@ -6,7 +6,7 @@ import { default as PlusIcon } from "../../../../shared/Icons/Plus";
 import { default as PhoneIcon } from "../../../../shared/Icons/Phone";
 import { getColor } from "../../../../theme/theme";
 
-const ActivityPageActionsButtonWrapper = styled.a`
+const ActionBarButtonWrapper = styled.a`
   display: flex;
   align-items: center;
   font-weight: 600;
@@ -25,18 +25,16 @@ const Text = styled.span`
   margin-left: 6px;
 `;
 
-export const ActivityPageActionsButton = ({ text, icon }) => {
-  return (
-    <ActivityPageActionsButtonWrapper>
-      <TextWrapper>
-        {icon === 'phone' ? <PhoneIcon /> : <PlusIcon width="18px" height="18px" />}
-        <Text>{text}</Text>
-      </TextWrapper>
-    </ActivityPageActionsButtonWrapper>
-  )
-};
+export const ActionBarButton = ({ text, icon }) => (
+  <ActionBarButtonWrapper>
+    <TextWrapper>
+      {icon === 'phone' ? <PhoneIcon /> : <PlusIcon width="18px" height="18px" />}
+      <Text>{text}</Text>
+    </TextWrapper>
+  </ActionBarButtonWrapper>
+);
 
-ActivityPageActionsButton.propTypes = {
+ActionBarButton.propTypes = {
   text: PropTypes.string,
   icon: PropTypes.string
 }
