@@ -8,14 +8,13 @@ import { CardInfo } from './CardInfo';
 const CardWrapper = styled.div`
   display: flex;
   align-items: center;
-  height: 66px;
   width: 100%;
   margin-bottom: 8px;
 `;
 
 
 export const Card = ({ personName, activity }) => (
-  <CardWrapper>
+  <CardWrapper data-testid="card" >
       <CardIcon activityType={activity.type} />
       <CardInfo personName={personName} activity={activity} />
   </CardWrapper>

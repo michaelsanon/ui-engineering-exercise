@@ -11,10 +11,7 @@ import { getColor } from "../../theme/theme";
 const PeopleDashboardWrapper = styled.div`
   display: flex;
   flex-direction: column;
-
-  width: 667px;
-  margin-top: 20px;
-  margin-left: 20px;
+  padding-bottom: 225px;
 
   background-color: ${getColor('white')};
   border: 1px solid ${getColor('greyLightest')};
@@ -22,39 +19,45 @@ const PeopleDashboardWrapper = styled.div`
 
 const PanelPageWrapper = styled.div`
   display: flex;
-  min-height: 800px;
 `;
 
-const PanelTab = ({ activeTab, personName, activitiesUrls }) => {
+const PanelTab = ({ activeTab, personName, pastActivitiesUrl, upcomingActivitiesUrl }) => {
   switch (activeTab) {
     case 'Tracking':
       return <TrackingTab />
     case 'Reminders':
       return <RemindersTab />
     default:
-      return <ActivityTab activitiesUrls={activitiesUrls} personName={personName} />
+      return <ActivityTab pastActivitiesUrl={pastActivitiesUrl} upcomingActivitiesUrl={upcomingActivitiesUrl} personName={personName} />
   }
 }
 
-export const PeopleDashboard = ({ personName, activitiesUrls }) => {
+export const PeopleDashboard = ({ personName, pastActivitiesUrl, upcomingActivitiesUrl }) => {
   const [activeTab, setactiveTab] = useState('Activity');
   return (
     <PeopleDashboardWrapper>
       <PeopleDashboardHeader activeTab={activeTab} setactiveTab={setactiveTab} />
       <PanelPageWrapper>
-        <PanelTab activeTab={activeTab} personName={personName} activitiesUrls={activitiesUrls} />
+        <PanelTab
+          activeTab={activeTab}
+          personName={personName}
+          pastActivitiesUrl={pastActivitiesUrl}
+          upcomingActivitiesUrl={upcomingActivitiesUrl}
+        />
       </PanelPageWrapper>
     </PeopleDashboardWrapper>
   )
 };
 
 PeopleDashboard.propTypes = {
-  activitiesUrl: PropTypes.array,
+  pastActivitiesUrl: PropTypes.string,
+  upcomingActivitiesUrl: PropTypes.string,
   personName: PropTypes.string
 };
 
 PanelTab.propTypes = {
-  activitiesUrls: PropTypes.array,
+  pastActivitiesUrl: PropTypes.string,
+  upcomingActivitiesUrl: PropTypes.string,
   activeTab: PropTypes.string,
   personName: PropTypes.string
 }

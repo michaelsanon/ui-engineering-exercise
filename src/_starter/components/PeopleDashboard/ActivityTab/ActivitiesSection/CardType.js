@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components';
 import { default as EyeIcon } from "../../../../shared/Icons/Eye";
 import { default as ClickIcon } from "../../../../shared/Icons/Click";
 import { default as ReplyIcon } from "../../../../shared/Icons/Reply";
-import { getColor } from "../../../../theme/theme";
+import { getColor, getBreakpoint } from "../../../../theme/theme";
 import { secondsToMS } from "../../../../utilities/timeConversions";
 
 const GeneralInfoWrapper = styled.div`
@@ -13,12 +13,15 @@ const GeneralInfoWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  max-width: 80%;
 `;
 
 const Title = styled.span`
   font-weight: 600;
   font-size: 14px;
   line-height: 14px;
+  margin-bottom: 6px;
+  flex-shrink: 0;
 
   ${({ titleColor, weight }) => css`
     color: ${getColor(titleColor)};
@@ -35,6 +38,14 @@ const Text = styled.span`
   margin-right: 5px;
 `;
 
+const TruncatedText = styled.div`
+  height: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 80%;
+`;
+
 const TextIconWrapper = styled.div`
   display: flex;
 `;
@@ -46,6 +57,11 @@ const TextWrapper = styled.div`
   align-items: center;
   height: 10px;
   margin-right: 5px;
+`;
+
+const TitleWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 const IconWrapper = styled.div`
@@ -76,13 +92,13 @@ const StyledReplyIcon = styled(ReplyIcon)`
   margin-left: 5px;
 `;
 
-export const CardTypes = ({ personName, activity }) => {
+export const CardType = ({ personName, activity }) => {
   switch (activity.type) {
     case 'voicemail':
       return (
         <GeneralInfoWrapper>
           <Title titleColor='greyDark' >Voicemail Received: {secondsToMS(activity.dynamic_data.voicemail_duration)}</Title>
-          <Text>{personName} To {activity.dynamic_data.user_name}</Text>
+          <Text>{personName} to {activity.dynamic_data.user_name}</Text>
         </GeneralInfoWrapper>
       )
     case 'success':
@@ -121,10 +137,16 @@ export const CardTypes = ({ personName, activity }) => {
       case 'email_reply':
         return (
           <GeneralInfoWrapper>
-          <Title titleColor='blueDark'>
-            {`RE: ${activity.static_data.in_reply_to_subject} `}
-            <Title weight="400" titleColor='greyDark'>{activity.static_data.body}</Title>
-          </Title>
+            <TitleWrapper>
+              <Title titleColor='blueDark'>
+                {`RE: ${activity.static_data.in_reply_to_subject}`}&nbsp;
+              </Title>
+              <Title weight="400" titleColor='greyDark'>
+                <TruncatedText>
+                  {activity.static_data.body}
+                </TruncatedText>
+              </Title>
+            </TitleWrapper>
           <TextIconWrapper>
             <TextWrapper>
               <Text>{activity.dynamic_data.user_name}</Text>
@@ -143,17 +165,19 @@ export const CardTypes = ({ personName, activity }) => {
     default:
       return (
         <GeneralInfoWrapper>
-          <Title titleColor='greyDark'>
-            {'Added to Cadence '}
+          <TitleWrapper>
+            <Title titleColor='greyDark'>
+              Added to Cadence&nbsp;
+            </Title>
             <Title weight="400" titleColor='blueDark'>{activity.dynamic_data.cadence_name}</Title>
-          </Title>
+          </TitleWrapper>
           <Text>{`Added by ${activity.static_data.instigator.action_caller_name} assigned to ${activity.dynamic_data.user_name}`}</Text>
         </GeneralInfoWrapper>
       )
   }
 }
 
-CardTypes.propTypes = {
+CardType.propTypes = {
   activity: PropTypes.object,
   personName: PropTypes.string
 }

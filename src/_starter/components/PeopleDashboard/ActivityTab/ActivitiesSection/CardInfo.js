@@ -2,43 +2,72 @@ import React from "react";
 import PropTypes from "prop-types"
 import styled from 'styled-components';
 
-import { CardTypes } from './CardTypes';
-import { getColor } from "../../../../theme/theme";
+import { CardType } from './CardType';
+import { getColor, getBreakpoint } from "../../../../theme/theme";
 import { extractDateAndTime } from "../../../../utilities/timeConversions"
 
 const CardInfoWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   height: 100%;
   width: 100%;
   border: 1px solid ${getColor('greyLightest')};
   box-sizing: border-box;
   padding: 16px;
+
+  @media (min-width: ${getBreakpoint('md')}) {
+    justify-content: space-between;
+    flex-direction: row;
+  }
 `;
 
 const DateAndTime = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
-  height: 100%;
+  flex-direction: row;
+  margin-top: 6px;
+
+  @media (min-width: ${getBreakpoint('md')}) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 0;
+  }
 `;
 
-const DateAndTimeText = styled.span`
+const DateText = styled.div`
   font-weight: 600;
   font-size: 12px;
   line-height: 12px;
   color: ${getColor('grey')};
+  margin-right: 6px;
+
+  @media (min-width: ${getBreakpoint('md')}) {
+    margin-right: 0;
+  }
+`;
+
+const TimeText = styled.div`
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 12px;
+  color: ${getColor('grey')};
+
+  @media (min-width: ${getBreakpoint('md')}) {
+    margin-top: 10px;
+  }
 `;
 
 export const CardInfo = ({ personName, activity }) => {
-  const dateAndTime = extractDateAndTime(activity.created_at);
+  const date = new Date(activity.created_at);
+  const formattedDate = date.toLocaleDateString("en-US",  {  year: 'numeric', month: 'short', day: 'numeric' });
+  const formattedTime = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
   return (
     <CardInfoWrapper>
-      <CardTypes activity={activity} personName={personName} />
+      <CardType activity={activity} personName={personName} />
       <DateAndTime>
-        <DateAndTimeText>{dateAndTime[0]}</DateAndTimeText>
-        <DateAndTimeText>{dateAndTime[1]}</DateAndTimeText>
+        <DateText>{formattedDate}</DateText>
+        <TimeText>{formattedTime}</TimeText>
       </DateAndTime>
     </CardInfoWrapper>
   )

@@ -17,22 +17,18 @@ const ConnectionsWrapper = styled.div`
 
 export const StyledCloudIcon = styled(CloudIcon)`
   color: ${getColor('vendorSalesforceBlue')};
-  cursor: pointer;
 `;
 
 export const StyledLinkedInIcon = styled(LinkedInIcon)`
   color: ${getColor('vendorLinkedInBlue')};
-  cursor: pointer;
 `;
 
 export const StyledTwitterIcon = styled(TwitterIcon)`
   color: ${getColor('vendorTwitterBlue')};
-  cursor: pointer;
 `;
 
 export const StyledLinkIcon = styled(LinkIcon)`
   color: ${getColor('greyDarkest')};
-  cursor: pointer;
 `;
 
 export const Connections = ({

@@ -12,6 +12,7 @@ const Layout = styled.div`
 const Container = styled.div`
   height: 100%;
   width: 100%;
+  overflow: auto;
 `;
 
 export const AppShell = ({ children }) => {

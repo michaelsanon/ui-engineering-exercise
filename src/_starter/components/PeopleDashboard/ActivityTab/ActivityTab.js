@@ -4,19 +4,21 @@ import styled from 'styled-components';
 
 import { ActionBar } from './ActionBar/ActionBar';
 import { ActivitiesSection } from "./ActivitiesSection/ActivitiesSection";
-
-import tempdata from './ActivitiesSection/tempdata.json';
+import { getBreakpoint } from "../../../theme/theme";
 
 const ActivityTabWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
   padding: 16px 20px;
   width: 100%;
+
+  @media (min-width: ${getBreakpoint('md')}) {
+    align-items: center;
+  }
 `;
 
-export const ActivityTab = ({ personName, activitiesUrls }) => {
+export const ActivityTab = ({ personName, pastActivitiesUrl, upcomingActivitiesUrl }) => {
   const [upcomingActivities, setUpcomingActivities] = useState([]);
   const [pastActivities, setPastActivities] = useState([]);
 
@@ -25,17 +27,15 @@ export const ActivityTab = ({ personName, activitiesUrls }) => {
   // Pass filtered activities into ActivitiesSection component
 
   useEffect(() => {
-    // TODO: Error handling for both requests
-    
-    setPastActivities(tempdata.data);
-    fetch(activitiesUrls[0])
+    // TODO: Add error handling in case the fetch request fails so we can inform the user
+    fetch(pastActivitiesUrl)
       .then(res => res.json())
       .then(result => setPastActivities(result.data))
 
-    fetch(activitiesUrls[1])
+    fetch(upcomingActivitiesUrl)
       .then(res => res.json())
       .then(result => setUpcomingActivities(result.data))
-  }, [activitiesUrls]);
+  }, [upcomingActivitiesUrl, pastActivitiesUrl]);
 
   return (
     <ActivityTabWrapper>
@@ -47,6 +47,7 @@ export const ActivityTab = ({ personName, activitiesUrls }) => {
 };
 
 ActivityTab.propTypes = {
-  activitiesUrls: PropTypes.array,
+  pastActivitiesUrl: PropTypes.string,
+  upcomingActivitiesUrl: PropTypes.string,
   personName: PropTypes.string
 };

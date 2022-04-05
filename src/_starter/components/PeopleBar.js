@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { getColor } from "../theme/theme";
 
 const BlankDiv = styled.div`
-  width: 100%;
   padding: 16px 20px;
   background-color: ${getColor('white')};
   color: ${getColor('greyDarkest')};
@@ -13,8 +12,6 @@ const BlankDiv = styled.div`
   line-height: 18px;
 `;
 
-export const PeopleBar = () => {
-  return (
-    <BlankDiv>People</BlankDiv>
-  )
-};
+export const PeopleBar = () => (
+  <BlankDiv>People</BlankDiv>
+)

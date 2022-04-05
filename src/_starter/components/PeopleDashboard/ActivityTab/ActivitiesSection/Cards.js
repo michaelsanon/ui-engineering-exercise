@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import styled from 'styled-components';
 
 import { Card } from './Card';
-import { getColor } from "../../../../theme/theme";
+import { getColor, getBreakpoint } from "../../../../theme/theme";
 
 const CardsWrapper = styled.div`
   display: flex;
@@ -14,11 +14,14 @@ const CardsWrapper = styled.div`
 
 const NoActivitiesMessageWrapper = styled.div`
   display: flex;
-  justify-content: center;
   width: 100%;
+
+  @media (min-width: ${getBreakpoint('md')}) {
+    justify-content: center;
+  }
 `;
 
-const NoActivitiesText = styled.span`
+const NoActivitiesText = styled.div`
   font-weight: 400;
   font-size: 12px;
   line-height: 12px;

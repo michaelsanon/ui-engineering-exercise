@@ -8,18 +8,23 @@ import { default as ReplyIcon } from "../../../../shared/Icons/Reply";
 import { default as PhoneIcon } from "../../../../shared/Icons/Phone";
 import { default as VoiceMailIcon } from "../../../../shared/Icons/Voicemail";
 import { default as BadgeIcon } from "../../../../shared/Icons/Badge";
+import { getBreakpoint } from "../../../../theme/theme";
 
 const IconWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50px;
-  margin-right: 16px;
-  ${({ color }) => css`
-    background: rgba(${color}, 0.1);
-  `};
+  display: none;
+
+  @media (min-width: ${getBreakpoint('md')}) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50px;
+    margin-right: 16px;
+    ${({ color }) => css`
+      background: rgba(${color}, 0.1);
+    `};
+  }
 `;
 
 const StyledVoiceMailIcon = styled(VoiceMailIcon)`

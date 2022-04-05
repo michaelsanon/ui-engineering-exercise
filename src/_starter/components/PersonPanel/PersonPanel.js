@@ -7,16 +7,13 @@ import { Connections } from "./Connections";
 import { getColor } from "../../theme/theme";
 
 const PersonPanelWrapper = styled.div`
-  height: 166px;
-  width: 300px;
-  margin-left: 10px;
-  margin-top: 10px;
   background-color: ${getColor('white')};
   border: 1px solid ${getColor('greyLightest')};
 
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 20px;
 `;
 
 const PersonName = styled.span`
@@ -40,7 +37,6 @@ const PersonCompany = styled.a`
   color: #337AB7;
   font-size: 14px;
   line-height: 17px;
-  cursor: pointer;
   text-decoration: none;
 `;
 
