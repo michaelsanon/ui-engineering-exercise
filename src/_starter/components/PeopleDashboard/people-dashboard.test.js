@@ -131,7 +131,7 @@ describe('PeopleDashboard', () => {
   
     // Assert there are no upcoming activities
     expect(await screen.findByText('Upcoming Activities')).toBeVisible();
-    expect(await screen.findByText("Once actions are scheduled, they\'ll appear here")).toBeVisible();
+    expect(await screen.findByText("Once actions are scheduled, they'll appear here")).toBeVisible();
 
     // Assert that there are past activities
     expect(await screen.findByText('Past Activities')).toBeVisible();
