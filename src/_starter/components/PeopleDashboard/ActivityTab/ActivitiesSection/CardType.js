@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components';
 import { default as EyeIcon } from "../../../../shared/Icons/Eye";
 import { default as ClickIcon } from "../../../../shared/Icons/Click";
 import { default as ReplyIcon } from "../../../../shared/Icons/Reply";
-import { getColor, getBreakpoint } from "../../../../theme/theme";
+import { getColor } from "../../../../theme/theme";
 import { secondsToMS } from "../../../../utilities/timeConversions";
 
 const GeneralInfoWrapper = styled.div`

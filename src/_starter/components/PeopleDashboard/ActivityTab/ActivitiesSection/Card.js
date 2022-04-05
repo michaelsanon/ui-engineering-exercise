@@ -14,7 +14,7 @@ const CardWrapper = styled.div`
 
 
 export const Card = ({ personName, activity }) => (
-  <CardWrapper data-testid="card" >
+  <CardWrapper>
       <CardIcon activityType={activity.type} />
       <CardInfo personName={personName} activity={activity} />
   </CardWrapper>

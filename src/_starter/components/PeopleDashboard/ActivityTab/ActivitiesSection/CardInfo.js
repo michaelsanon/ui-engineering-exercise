@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 import { CardType } from './CardType';
 import { getColor, getBreakpoint } from "../../../../theme/theme";
-import { extractDateAndTime } from "../../../../utilities/timeConversions"
 
 const CardInfoWrapper = styled.div`
   display: flex;
